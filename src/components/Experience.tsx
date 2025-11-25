@@ -48,61 +48,69 @@ const Experience = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-gray-50">
+    <section id="experience" className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
-            Experience & Education
-          </h2>
-          
+        <div className="max-w-5xl mx-auto">
+          <div className="mb-16">
+            <h2 className="text-5xl md:text-6xl font-bold text-blackDeep mb-4">
+              Experience & Education
+            </h2>
+            <p className="text-xl text-grayMid">
+              Timeline of my professional journey and educational achievements
+            </p>
+          </div>
+
           <div className="space-y-8">
             {experiences.map((exp, index) => (
               <div key={index} className="relative">
-                {/* Timeline Line */}
-                <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-blue-200"></div>
-                
-                {/* Timeline Dot */}
-                <div className={`absolute left-2 top-8 w-4 h-4 rounded-full border-4 border-white shadow-lg ${
-                  exp.type === 'work' ? 'bg-blue-600' : 'bg-green-600'
-                }`}></div>
-                
-                <div className="ml-12 bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-800">{exp.title}</h3>
-                      <div className={`flex items-center gap-2 font-semibold mt-1 ${
-                        exp.type === 'work' ? 'text-blue-600' : 'text-green-600'
+                <div className="absolute left-4 top-0 bottom-0 w-1 bg-primary/20"></div>
+
+                <div className={`absolute left-0 top-6 w-10 h-10 rounded-full border-4 border-white shadow-lg flex items-center justify-center ${
+                  exp.type === 'work' ? 'bg-primary' : 'bg-primaryLight'
+                }`}>
+                  {exp.type === 'work' ? (
+                    <Building size={20} className="text-white" />
+                  ) : (
+                    <GraduationCap size={20} className="text-white" />
+                  )}
+                </div>
+
+                <div className="ml-20 bg-white rounded-2xl p-8 border border-gray-200 hover:shadow-lg transition-all duration-300">
+                  <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-bold text-blackDeep">{exp.title}</h3>
+                      <p className={`flex items-center gap-2 font-semibold mt-2 ${
+                        exp.type === 'work' ? 'text-primary' : 'text-primaryLight'
                       }`}>
-                        {exp.type === 'work' ? <Building size={16} /> : <GraduationCap size={16} />}
                         {exp.company}
-                      </div>
+                      </p>
                     </div>
-                    <div className="flex flex-col md:items-end mt-2 md:mt-0">
-                      <div className="flex items-center gap-2 text-gray-600">
+                    <div className="flex flex-col md:items-end mt-4 md:mt-0 text-grayMid">
+                      <div className="flex items-center gap-2 font-medium">
                         <Calendar size={16} />
                         {exp.period}
                       </div>
-                      <div className="flex items-center gap-2 text-gray-600 mt-1">
+                      <div className="flex items-center gap-2 font-medium mt-2">
                         <MapPin size={16} />
                         {exp.location}
                       </div>
                     </div>
                   </div>
-                  
-                  <p className="text-gray-700 mb-4">{exp.description}</p>
-                  
-                  <div className="space-y-2">
-                    <h4 className="font-semibold text-gray-800">Key Highlights:</h4>
-                    <ul className="grid md:grid-cols-2 gap-2">
+
+                  <p className="text-grayMid leading-relaxed mb-6">{exp.description}</p>
+
+                  <div>
+                    <h4 className="font-bold text-blackDeep mb-3">Key Highlights:</h4>
+                    <div className="grid md:grid-cols-2 gap-3">
                       {exp.achievements.map((achievement, achIndex) => (
-                        <li key={achIndex} className="flex items-start gap-2 text-gray-600">
-                          <span className={`mt-1.5 w-2 h-2 rounded-full flex-shrink-0 ${
-                            exp.type === 'work' ? 'bg-blue-600' : 'bg-green-600'
+                        <div key={achIndex} className="flex items-start gap-3 text-grayMid">
+                          <span className={`mt-1.5 w-2.5 h-2.5 rounded-full flex-shrink-0 ${
+                            exp.type === 'work' ? 'bg-primary' : 'bg-primaryLight'
                           }`}></span>
-                          {achievement}
-                        </li>
+                          <span>{achievement}</span>
+                        </div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
                 </div>
               </div>
