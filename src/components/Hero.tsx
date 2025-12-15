@@ -38,11 +38,11 @@ const Hero = () => {
           </h1>
 
           <p className="text-xl md:text-2xl mb-4 text-blue-100 max-w-2xl mx-auto">
-            Full Stack Developer | LLM Integration | AI/ML
+            Full Stack Developer | MERN | Cybersecurity Enthusiast
           </p>
 
           <p className="text-lg mb-8 text-blue-200 max-w-2xl mx-auto">
-            Building efficient, scalable applications with modern frameworks. Experienced in full-stack development, LLM integration, and real-time systems.
+            Passionate about building cross-platform mobile apps, AI-powered web applications, and real-time systems with modern technologies
           </p>
 
           {/* Contact Info */}
@@ -69,10 +69,12 @@ const Hero = () => {
               <Mail size={20} />
               Get In Touch
             </button>
-            <a href="/shamilp_resume_2025.pdf" download="Shamil_P_Resume_2025.pdf" className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-900 transition-all duration-300 flex items-center justify-center gap-2 hover:shadow-lg transform hover:-translate-y-1">
+            <button className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-blue-900 transition-all duration-300 flex items-center justify-center gap-2 hover:shadow-lg transform hover:-translate-y-1">
               <Download size={20} />
-              Download Resume
-            </a>
+              <a href="/Shamil_P_Resume_2025.pdf" download="Shamil_P_Resume_2025.pdf">
+                Download Resume
+              </a>
+            </button>
           </div>
 
           {/* Scroll Indicator */}
