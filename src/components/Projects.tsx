@@ -50,6 +50,14 @@ const Projects = () => {
       tech: ['Python', 'Machine Learning', 'Flask'],
       github: 'https://github.com/candycanekl78/Real-Time-Phishing-Detection-Awareness-System.git',
       live: '#'
+    },
+    {
+      title: 'Docquest.ai',
+      description: 'Built an LLM-integrated document intelligence platform that processes both documents and images and delivers accurate, context-aware answers with 90% accuracy. Integrated semantic search with Cohere embeddings, improving data retrieval efficiency by 35%. Designed scalable MongoDB architecture processing 500+ documents with fast and reliable response times.',
+      image: '/docquest_home_page.png',
+      tech: ['Next.js', 'Node.js', 'Llama', 'Cohere Embeddings', 'MongoDB', 'TailwindCSS'],
+      github: 'https://github.com/Shamilp-dev/docquest.ai',
+      live: 'https://docquestai.vercel.app/'
     }
   ];
 
