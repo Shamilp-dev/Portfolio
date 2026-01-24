@@ -38,7 +38,7 @@ const Hero = () => {
           </h1>
 
           <p className="text-xl md:text-2xl mb-4 text-blue-100 max-w-2xl mx-auto">
-            Full Stack Developer | MERN | Cybersecurity Enthusiast
+            Frontend Developer | MERN Stack | UI/UX |  Cybersecurity Enthusiast
           </p>
 
           <p className="text-lg mb-8 text-blue-200 max-w-2xl mx-auto">
@@ -57,7 +57,7 @@ const Hero = () => {
             </div>
             <div className="flex items-center justify-center gap-2">
               <MapPin size={16} />
-              <span>Bangalore, India</span>
+              <span>Kerala, India</span>
             </div>
           </div>
 
