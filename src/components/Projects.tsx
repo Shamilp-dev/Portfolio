@@ -80,7 +80,7 @@ const Projects = () => {
         '/homeli.png',
         '/gulab.png'
       ],
-      figma: '#'
+      figma: 'https://www.figma.com/design/HS1eN12Ah4svncT2HQjbbo/Ui-Ux-Machine-Test--Shamil-P-?node-id=391-193&t=4p3MqKPOndAiIt2q-1'
     },
     {
       id: 'docquest-uiux',
@@ -100,7 +100,7 @@ const Projects = () => {
         '/docquest main view.png',
         '/docquest_home_page.png'
       ],
-      figma: '#'
+      figma: 'https://www.figma.com/design/HS1eN12Ah4svncT2HQjbbo/Ui-Ux-Machine-Test--Shamil-P-?node-id=391-193&t=4p3MqKPOndAiIt2q-1'
     },
     {
       id: 'student-platform',
@@ -119,7 +119,7 @@ const Projects = () => {
         '/student managemnt systsm main.png',
         '/sms1.png',
       ],
-      figma: '#'
+      figma: 'https://www.figma.com/design/HS1eN12Ah4svncT2HQjbbo/Ui-Ux-Machine-Test--Shamil-P-?node-id=0-1&t=FeKzJ5WhJRoc9zqW-1'
     }
   ];
 
@@ -308,7 +308,7 @@ const Projects = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-gray-600 hover:text-[#f5a623] text-sm"
               >
-                <Figma size={16} />
+                <ExternalLink size={16} />
                 <span className="font-medium">Figma</span>
               </a>
             )}
