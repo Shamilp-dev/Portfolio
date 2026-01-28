@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, ArrowUp } from 'lucide-react';
+import { Heart, ArrowUp, Mail, Phone } from 'lucide-react';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -7,35 +7,63 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-blackDeep text-white py-12 border-t border-grayMid/20">
-      <div className="container mx-auto px-4">
+    <footer className="relative bg-[#3d4f3d] text-white">
+      <div className="container mx-auto px-6 py-12">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-center mb-8">
+          <div className="grid md:grid-cols-3 gap-12 mb-12">
+            {/* Left side - Logo and description */}
             <div>
-              <h3 className="text-2xl font-bold mb-2">Shamil P</h3>
-              <p className="text-gray-400">
-                Full Stack Developer & UI/UX Designer - Building amazing digital experiences
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-10 h-10 bg-[#f5a623] rounded-full flex items-center justify-center">
+                  <span className="text-[#3d4f3d] font-black text-xl">S</span>
+                </div>
+                <span className="text-2xl font-black">Shamil.</span>
+              </div>
+              <p className="text-white/70 leading-relaxed">
+                UI/UX Designer & Developer creating beautiful digital experiences.
               </p>
             </div>
 
-            <div className="flex items-center gap-6 mt-6 md:mt-0">
-              <div className="flex items-center gap-2 text-gray-400 text-sm">
-                <span>Made with</span>
-                <Heart size={16} className="text-primary fill-primary" />
-                <span>using React & Tailwind CSS</span>
-              </div>
+            {/* Middle - Quick links */}
+            <div>
+              <h3 className="text-lg font-bold mb-4">Quick Links</h3>
+              <ul className="space-y-2">
+                <li><a href="#home" className="text-white/70 hover:text-[#f5a623] transition-colors">Home</a></li>
+                <li><a href="#about" className="text-white/70 hover:text-[#f5a623] transition-colors">Services</a></li>
+                <li><a href="#projects" className="text-white/70 hover:text-[#f5a623] transition-colors">Projects</a></li>
+                <li><a href="#contact" className="text-white/70 hover:text-[#f5a623] transition-colors">Contact</a></li>
+              </ul>
+            </div>
 
-              <button
-                onClick={scrollToTop}
-                className="w-10 h-10 bg-primary hover:bg-primaryDark rounded-full flex items-center justify-center transition-all duration-300 transform hover:-translate-y-1"
-              >
-                <ArrowUp size={20} />
-              </button>
+            {/* Right side - Contact */}
+            <div>
+              <h3 className="text-lg font-bold mb-4">Get In Touch</h3>
+              <div className="space-y-3">
+                <a href="mailto:shamilpofficial@gmail.com" className="flex items-center gap-2 text-white/70 hover:text-[#f5a623] transition-colors">
+                  <Mail size={16} />
+                  <span className="text-sm">shamilpofficial@gmail.com</span>
+                </a>
+                <a href="tel:+918848037794" className="flex items-center gap-2 text-white/70 hover:text-[#f5a623] transition-colors">
+                  <Phone size={16} />
+                  <span className="text-sm">+91 8848037794</span>
+                </a>
+              </div>
             </div>
           </div>
 
-          <div className="border-t border-grayMid/20 pt-8 text-center text-gray-500 text-sm">
-            <p>&copy; 2025 Shamil P. All rights reserved. | Designed & Developed with passion</p>
+          {/* Bottom bar */}
+          <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/20 gap-4">
+            <p className="text-white/70 flex items-center gap-2">
+              Made with <Heart size={16} className="text-red-400 fill-red-400" /> by Shamil P © 2026
+            </p>
+
+            <button
+              onClick={scrollToTop}
+              className="flex items-center gap-2 px-6 py-3 bg-[#f5a623] text-[#3d4f3d] font-bold rounded-full hover:bg-white transition-all"
+            >
+              <span className="text-sm">Back to top</span>
+              <ArrowUp size={16} />
+            </button>
           </div>
         </div>
       </div>

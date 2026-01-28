@@ -1,112 +1,80 @@
 import React from 'react';
-import { MapPin, Calendar, Award, Code, Database, Smartphone, Shield, Palette, Brain } from 'lucide-react';
+import { Code2, Palette, LockKeyhole, Brush } from 'lucide-react';
 
 const About = () => {
+  const services = [
+    {
+      icon: <Code2 size={32} />,
+      title: 'Frontend Development',
+      description: 'Building modern, responsive web applications using React, Next.js, TypeScript, and Tailwind CSS with focus on performance and user experience'
+    },
+    {
+      icon: <Palette size={32} />,
+      title: 'UI/UX Design',
+      description: 'Designing intuitive and beautiful user interfaces with Figma, creating wireframes, prototypes, and ensuring seamless user experiences'
+    },
+    {
+      icon: <Brush size={32} />,
+      title: 'Graphic Design',
+      description: 'Creating impactful visual content including logos, posters, and brand materials with Adobe Creative Suite for consistent brand identity'
+    },
+    {
+      icon: <LockKeyhole size={32} />,
+      title: 'Full Stack Development',
+      description: 'Working with Node.js, MongoDB, and REST APIs to build complete web solutions with secure backend integrations'
+    }
+  ];
+
   return (
-    <section id="about" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 text-gray-800">
-            About Me
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <p className="text-lg text-gray-700 leading-relaxed">
-                I'm a versatile Full Stack Developer with expertise in web and mobile application development, specializing in React, React Native, 
-                Node.js, and AI/ML integration. I have hands-on experience building cross-platform mobile apps, real-time systems, and AI-powered 
-                applications with modern technologies like Docker, AWS, and various databases.
-              </p>
-              
-              <p className="text-lg text-gray-700 leading-relaxed">
-                I hold a Bachelor's degree in Computer Applications (CGPA: 7.62/10) from Krupanidhi Degree College, Bangalore, 
-                and a Diploma in Instrumentation Engineering from Government Polytechnic College, Kerala. 
-                My recent internship at Prinston Smart involved developing real-time AI/ML systems, and I have experience creating 
-                cross-platform mobile applications and full-stack web solutions.
-              </p>
-
-              <p className="text-lg text-gray-700 leading-relaxed">
-                I excel at combining technical expertise with creative problem-solving to build innovative digital solutions. 
-                My experience spans from mobile app development with React Native to AI/ML model integration, containerization 
-                with Docker, and cloud deployment on AWS and Netlify.
-              </p>
-
-              <div className="grid grid-cols-2 gap-4 mt-8">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
-                    <MapPin className="text-blue-600" size={20} />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500">Location</p>
-                    <p className="font-semibold">Bangalore, India</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                    <Calendar className="text-green-600" size={20} />
-                  </div>
-                  <div>
-                    <p className="text-sm text-gray-500">Status</p>
-                    <p className="font-semibold">Fresh Graduate</p>
-                  </div>
-                </div>
-              </div>
+    <section id="about" className="relative py-14 bg-gradient-to-b from-white to-gray-50">
+      <div className="container mx-auto px-6">
+        <div className="max-w-7xl mx-auto">
+          {/* Section header */}
+          <div className="text-center mb-16">
+            <div className="inline-block mb-4">
+              <span className="text-[#f5a623] font-semibold text-lg">SERVICES</span>
             </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#2d2d2d] mb-6">
+              What I Do
+            </h2>
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              I provide a full range of design and development services to help bring your digital vision to life
+            </p>
+          </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-xl">
-              <h3 className="text-2xl font-bold mb-6 text-gray-800">What I Do</h3>
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Code className="text-blue-600" size={16} />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Full-Stack Development</h4>
-                    <p className="text-gray-600 text-sm">React.js, Node.js, JavaScript ES6+, TypeScript, Python, PHP, HTML5, CSS3</p>
-                  </div>
+          {/* Services Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                className="group bg-white rounded-2xl p-8 border-2 border-gray-100 hover:border-[#f5a623] transition-all duration-300 hover:shadow-xl"
+              >
+                <div className="w-16 h-16 bg-gradient-to-br from-[#3d4f3d] to-[#2d3d2d] rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                  <div className="text-[#f5a623]">{service.icon}</div>
                 </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Brain className="text-purple-600" size={16} />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Machine Learning & AI</h4>
-                    <p className="text-gray-600 text-sm">Python, TensorFlow/Keras, Computer Vision, Data Analysis</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Shield className="text-red-600" size={16} />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Cybersecurity</h4>
-                    <p className="text-gray-600 text-sm">Ethical Hacking, Network Security, Vulnerability Assessment</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Palette className="text-orange-600" size={16} />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800">UI/UX Design</h4>
-                    <p className="text-gray-600 text-sm">Figma, Adobe Creative Suite, Responsive Design</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Database className="text-green-600" size={16} />
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800">Database Management</h4>
-                    <p className="text-gray-600 text-sm">MySQL, MongoDB, Database Design, Query Optimization</p>
-                  </div>
-                </div>
+                <h3 className="text-xl font-bold mb-3 text-[#2d2d2d]">{service.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{service.description}</p>
               </div>
+            ))}
+          </div>
+
+          {/* Stats Section */}
+          <div className="grid md:grid-cols-4 gap-8 mt-20">
+            <div className="text-center">
+              <div className="text-5xl font-black text-[#f5a623] mb-2">10+</div>
+              <p className="text-gray-600 font-medium">Projects Completed</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-black text-[#f5a623] mb-2">280+</div>
+              <p className="text-gray-600 font-medium">Design Hours</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-black text-[#f5a623] mb-2">50+</div>
+              <p className="text-gray-600 font-medium">Happy Clients</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl font-black text-[#f5a623] mb-2">100%</div>
+              <p className="text-gray-600 font-medium">Satisfaction</p>
             </div>
           </div>
         </div>

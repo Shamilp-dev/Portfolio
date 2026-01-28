@@ -1,136 +1,388 @@
-import React from 'react';
-import { ExternalLink, Github } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ExternalLink, Github, Linkedin, Figma } from 'lucide-react';
 
 const Projects = () => {
-  const projects = [
+  const developmentProjects = [
     {
-      title: 'Homeli Food Delivery Application',
-      description: 'Cross-platform mobile app built with React Native featuring real-time order tracking and secure JWT authentication. Designed and integrated RESTful APIs with MongoDB hosted on AWS.',
-      image: 'https://images.pexels.com/photos/1410235/pexels-photo-1410235.jpeg?auto=compress&cs=tinysrgb&w=600',
-      tech: ['React Native', 'Node.js', 'MongoDB', 'AWS'],
-      github: 'https://github.com/candycanekl78/Homeli-Food-Delivery-Website.git',
-      live: '#'
-    },
-    {
-      title: 'Real-time Fire Detection System',
-      description: 'Full-stack web app for real-time video inference with YOLOv8 model fine-tuning. Achieved 25+ FPS and 15% accuracy increase with optimized WebSocket communication.',
-      image: 'https://images.pexels.com/photos/355952/pexels-photo-355952.jpeg?auto=compress&cs=tinysrgb&w=600',
-      tech: ['React', 'Node.js', 'YOLOv8', 'Docker'],
-      github: 'https://github.com/candycanekl78/Fire-Detection-ML.git',
-      live: 'https://fire-detection-system.netlify.app/'
-    },
-    {
-      title: 'AI Image Captioner',
-      description: 'Full-stack application generating descriptive captions for images using OpenAI Vision API. Deployed with 99% uptime successfully processing 100+ user uploads.',
-      image: 'https://images.pexels.com/photos/1714900/pexels-photo-1714900.jpeg?auto=compress&cs=tinysrgb&w=600',
-      tech: ['React', 'Node.js', 'OpenAI API', 'Netlify'],
-      github: 'https://github.com/candycanekl78/AI-Image-Captioner.git',
-      live: 'https://ai-image-captioner.netlify.app/'
-    },
-    {
-      title: 'To-Do List Application',
-      description: 'Modern, responsive to-do list with task management, local storage persistence, and priority levels. Fully optimized for all devices with intuitive user interface.',
-      image: 'https://images.pexels.com/photos/3862624/pexels-photo-3862624.jpeg?auto=compress&cs=tinysrgb&w=600',
-      tech: ['HTML5', 'CSS3', 'JavaScript'],
-      github: 'https://github.com/candycanekl78/ToDolist-Website.git',
-      live: '#'
-    },
-    {
-      title: 'Smart Irrigation System IoT',
-      description: 'IoT-based smart irrigation system automating watering based on soil moisture levels and weather conditions. Built with Arduino sensors and cloud connectivity for remote monitoring.',
-      image: 'https://images.pexels.com/photos/416978/pexels-photo-416978.jpeg?auto=compress&cs=tinysrgb&w=600',
-      tech: ['Arduino', 'IoT', 'Cloud Computing'],
-      github: 'https://github.com/candycanekl78/smart-Irrigation-system-IoT.git',
-      live: '#'
-    },
-    {
-      title: 'Phishing Detection System',
-      description: 'Comprehensive cybersecurity solution detecting phishing attempts in real-time. Features ML algorithms for URL analysis and user awareness modules with security dashboard.',
-      image: 'https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=600',
-      tech: ['Python', 'Machine Learning', 'Flask'],
-      github: 'https://github.com/candycanekl78/Real-Time-Phishing-Detection-Awareness-System.git',
-      live: '#'
-    },
-    {
+      id: 'docquest',
       title: 'Docquest.ai',
-      description: 'Built an LLM-integrated document intelligence platform that processes both documents and images and delivers accurate, context-aware answers with 90% accuracy. Integrated semantic search with Cohere embeddings, improving data retrieval efficiency by 35%. Designed scalable MongoDB architecture processing 500+ documents with fast and reliable response times.',
-      image: '/docquest_home_page.png',
-      tech: ['Next.js', 'Node.js', 'Llama', 'Cohere Embeddings', 'MongoDB', 'TailwindCSS'],
-      github: 'https://github.com/Shamilp-dev/docquest.ai',
+      category: 'Development',
+      tech: ['Next.js', 'Node.js', 'Llama', 'Cohere', 'MongoDB'],
+      description: 'LLM-powered document intelligence platform for insights of documents and images.',
+      highlights: [
+        'Built an LLM-powered platform with ~90% accuracy',
+        'Integrated semantic search and LLM with Cohere embeddings, improving retrieval by 35%',
+        'Designed scalable MongoDB architecture handling 500+ documents'
+      ],
+      images: [
+        '/docquest_home_page.png',
+        '/docquest main view.png'
+      ],
+      github: 'https://github.com/Shamilp-dev/docquest.ai.git',
       live: 'https://docquestai.vercel.app/'
+    },
+    {
+      id: 'homeli',
+      title: 'Homeli',
+      subtitle: 'Food Delivery Application',
+      category: 'Development',
+      tech: ['React Native', 'Node.js', 'Express.js', 'MongoDB'],
+      description: 'Cross-platform mobile application with real-time order tracking and secure authentication.',
+      highlights: [
+        'Developed cross-platform mobile app with real-time tracking',
+        'Implemented JWT-based secure authentication',
+        'Designed REST APIs on AWS, improving response time by 25%',
+        'Optimized state management, increasing engagement by 40%'
+      ],
+      images: [
+        '/homeli.png',
+        '/gulab.png'
+      ],
+      github: 'https://github.com/Shamilp-dev/homeli-foodDelivery-Application-MERN-',
+      demo: 'https://linkedin.com'
+    },
+    {
+      id: 'fire-detection',
+      title: 'Real-time Fire Detection System',
+      category: 'Development',
+      tech: ['React.js', 'Node.js', 'Python', 'Docker'],
+      description: 'AI-powered fire detection system using YOLOv8 with real-time video inference.',
+      highlights: [
+        'Fine-tuned YOLOv8 model with PyTorch and OpenCV',
+        'Improved detection accuracy by 15%',
+        'Implemented real-time detection workflow',
+        'Containerized with Docker and deployed via CI/CD'
+      ],
+      images: [
+        'fire.jpg',
+        'fire1.png',
+      ],
+      github: 'https://github.com/Shamilp-dev/Fire-Detection-System.git',
+      live: 'https://fire-detection-system.netlify.app/'
     }
   ];
 
-  return (
-    <section id="projects" className="py-20 bg-graySoft relative overflow-hidden">
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl"></div>
+  const uiuxProjects = [
+    {
+      id: 'homeli-uiux',
+      title: 'Homeli UI/UX',
+      subtitle: 'Food Delivery App Design',
+      category: 'UI/UX Design',
+      tech: ['Figma', 'Photoshop', 'UI Design', 'UX Research'],
+      description: 'Modern food delivery app UI/UX with engaging color palettes and smooth user flows.',
+      highlights: [
+        'Designed modern UI/UX using Figma and Photoshop',
+        'Applied consistent and engaging color palettes',
+        'Focused on smooth user flows and improved UX',
+        'Created responsive layouts for mobile platforms'
+      ],
+      images: [
+        '/homeli.png',
+        '/gulab.png'
+      ],
+      figma: '#'
+    },
+    {
+      id: 'docquest-uiux',
+      title: 'Docquest.ai UI/UX',
+      subtitle: 'AI Document Platform Design',
+      category: 'UI/UX Design',
+      tech: ['Figma', 'Photoshop', 'UI Design', 'Gradient Design'],
+      description: 'Modern AI-focused interface with dynamic gradients and unique color palette.',
+      highlights: [
+        'Designed modern AI-focused interface with Figma',
+        'Created dynamic login page with mesh gradient background',
+        'Designed AI search interface with dynamic colored borders',
+        'Implemented unique UI components (chat, popups, sidebar)'
+      ],
+      images: [
+        '/docquest_home_page.png',
+        '/docquest main view.png',
+        '/docquest_home_page.png'
+      ],
+      figma: '#'
+    },
+    {
+      id: 'student-platform',
+      title: 'Student Management Platform',
+      subtitle: 'Educational Dashboard Design',
+      category: 'UI/UX Design',
+      tech: ['Figma', 'Dashboard Design', 'Data Visualization'],
+      description: 'Comprehensive student management platform with dashboards, metrics, and responsive layouts.',
+      highlights: [
+        'Designed UI/UX for student management platform',
+        'Included dashboards with metrics and graphs',
+        'Designed responsive layouts for all devices',
+        'Implemented sidebar and bottom navigation patterns'
+      ],
+      images: [
+        '/student managemnt systsm main.png',
+        '/sms1.png',
+      ],
+      figma: '#'
+    }
+  ];
 
-      <div className="container mx-auto px-4 relative z-10">
+  const graphicProjects = [
+    {
+      id: 'jewellery-logo',
+      title: 'Jewellery Brand Logo',
+      subtitle: 'International Client Project',
+      category: 'Graphic Design',
+      tech: ['Illustrator', 'Photoshop', 'Logo Design', 'Branding'],
+      description: 'Logo design for a client combining traditional and modern concepts.',
+      highlights: [
+        'Designed logo for a jewellery brand',
+        'Combined traditional and modern design concepts',
+        'Created brand mockups using Photoshop and Ai',
+        'Delivered complete brand identity package'
+      ],
+      images: [
+        '/logo.png',
+        'jwellerystore.jpg',
+        'logoinjwellery.png'
+      ],
+      drive: '#'
+    },
+    {
+      id: 'football-poster',
+      title: 'Football Poster Design',
+      subtitle: 'Sports Promotion Campaign',
+      category: 'Graphic Design',
+      tech: ['Photoshop', 'Illustrator', 'Poster Design'],
+      description: 'Creative poster design for football-related promotions with dynamic composition.',
+      highlights: [
+        'Creative poster design for football promotions',
+        'Bold typography and dynamic composition',
+        'Vibrant color schemes and energy',
+        'Print-ready high-resolution artwork'
+      ],
+      images: [
+        '/posterdesign.png',
+        '/poster2.jpg',
+      ],
+      drive: '#'
+    },
+    {
+      id: 'marketing-poster',
+      title: 'Brand Promotion Posters',
+      subtitle: 'Promotional Campaign Design',
+      category: 'Graphic Design',
+      tech: ['Photoshop', 'Canva', 'Social Media Design'],
+      description: 'Designed promotional posters for digital marketing campaigns across various platforms.',
+      highlights: [
+        'Designed promotional posters for marketing campaigns',
+        'Created social media optimized graphics',
+        'Consistent brand messaging across designs',
+        'High engagement visual content'
+      ],
+      images: [
+        '/suno.png',
+        '/chair.png',
+      ],
+      drive: '#'
+    }
+  ];
+
+  // Image component manages its own rotation state
+  const ProjectImage = ({ images, projectId }: { images: string[]; projectId: string }) => {
+    const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+      const interval = setInterval(() => {
+        setIndex((i) => (i + 1) % images.length);
+      }, 3000);
+
+      return () => clearInterval(interval);
+    }, [images.length]);
+
+    return (
+      <>
+        <img
+          src={images[index]}
+          alt={`Project ${projectId}`}
+          className="w-full h-full object-cover"
+        />
+        
+        {/* Image indicators */}
+        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+          {images.map((_: string, idx: number) => (
+            <div
+              key={idx}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                index === idx ? 'bg-[#f5a623] w-6' : 'bg-white/50 w-2'
+              }`}
+            />
+          ))}
+        </div>
+      </>
+    );
+  };
+
+  const ProjectCard = ({ project }: any) => {
+    return (
+      <div className="group bg-white rounded-2xl overflow-hidden border-2 border-gray-100 hover:border-[#f5a623] hover:shadow-2xl">
+        {/* Image section */}
+        <div className="relative h-64 overflow-hidden bg-gray-100">
+          <ProjectImage images={project.images} projectId={project.id} />
+          
+          {/* Category badge */}
+          <div className="absolute top-4 left-4">
+            <span className="px-4 py-2 bg-[#3d4f3d] text-white rounded-full text-xs font-bold">
+              {project.category}
+            </span>
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="p-6">
+          <h3 className="text-2xl font-bold mb-1 text-[#2d2d2d]">{project.title}</h3>
+          {project.subtitle && (
+            <p className="text-[#f5a623] font-medium mb-3 text-sm">{project.subtitle}</p>
+          )}
+          <p className="text-gray-600 mb-4 text-sm leading-relaxed">{project.description}</p>
+
+          {/* Tech stack */}
+          <div className="flex flex-wrap gap-2 mb-4">
+            {project.tech.map((tech: string, techIndex: number) => (
+              <span
+                key={techIndex}
+                className="px-3 py-1 bg-gray-100 text-gray-700 rounded-lg text-xs font-medium"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          {/* Highlights */}
+          <div className="mb-4">
+            <ul className="space-y-2">
+              {project.highlights.slice(0, 3).map((highlight: string, idx: number) => (
+                <li key={idx} className="flex items-start gap-2 text-xs text-gray-600">
+                  <span className="text-[#f5a623] mt-1">•</span>
+                  <span>{highlight}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Links */}
+          <div className="flex flex-wrap gap-3 pt-4 border-t border-gray-100">
+            {project.github && (
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-600 hover:text-[#f5a623] text-sm"
+              >
+                <Github size={16} />
+                <span className="font-medium">Code</span>
+              </a>
+            )}
+            {project.live && (
+              <a
+                href={project.live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-600 hover:text-[#f5a623] text-sm"
+              >
+                <ExternalLink size={16} />
+                <span className="font-medium">Live Demo</span>
+              </a>
+            )}
+            {project.demo && (
+              <a
+                href={project.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-600 hover:text-[#f5a623] text-sm"
+              >
+                <Linkedin size={16} />
+                <span className="font-medium">Demo</span>
+              </a>
+            )}
+            {project.figma && (
+              <a
+                href={project.figma}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-600 hover:text-[#f5a623] text-sm"
+              >
+                <Figma size={16} />
+                <span className="font-medium">Figma</span>
+              </a>
+            )}
+            {project.drive && (
+              <a
+                href={project.drive}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-gray-600 hover:text-[#f5a623] text-sm"
+              >
+                <ExternalLink size={16} />
+                <span className="font-medium">View Files</span>
+              </a>
+            )}
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <section id="projects" className="relative py-14 bg-gradient-to-b from-white to-gray-50">
+      <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="mb-16">
-            <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">
-              Featured Projects
+          {/* Section header */}
+          <div className="text-center mb-16">
+            <div className="inline-block mb-4">
+              <span className="text-[#f5a623] font-semibold text-lg">PORTFOLIO</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#2d2d2d] mb-6">
+              My Projects
             </h2>
-            <p className="text-xl text-gray-400 max-w-2xl">
-              A selection of my recent work showcasing expertise across web, mobile, AI/ML, and cybersecurity domains
+            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+              Explore my work across development, UI/UX design, and graphic design
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                className="group bg-grayMid/30 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/5 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl hover:shadow-primary/20"
-              >
-                <div className="relative overflow-hidden h-48">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-grayMid to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
+          {/* Development Section */}
+          <div className="mb-20">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-2 h-8 bg-[#f5a623] rounded-full"></div>
+              <h3 className="text-3xl font-bold text-[#2d2d2d]">Development</h3>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {developmentProjects.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </div>
+          </div>
 
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-3">{project.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed mb-4">{project.description}</p>
+          {/* UI/UX Design Section */}
+          <div className="mb-20">
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-2 h-8 bg-[#f5a623] rounded-full"></div>
+              <h3 className="text-3xl font-bold text-[#2d2d2d]">UI/UX Design</h3>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {uiuxProjects.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </div>
+          </div>
 
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {project.tech.map((tech, techIndex) => (
-                      <span
-                        key={techIndex}
-                        className="bg-primary/20 text-primaryLight px-2.5 py-1 rounded-lg text-xs font-medium border border-primary/30"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex gap-3 pt-4 border-t border-white/5">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors text-sm font-medium"
-                    >
-                      <Github size={16} />
-                      Code
-                    </a>
-                    {project.live !== '#' && (
-                      <a
-                        href={project.live}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors text-sm font-medium"
-                      >
-                        <ExternalLink size={16} />
-                        Live Demo
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </div>
-            ))}
+          {/* Graphic Design Section */}
+          <div>
+            <div className="flex items-center gap-3 mb-8">
+              <div className="w-2 h-8 bg-[#f5a623] rounded-full"></div>
+              <h3 className="text-3xl font-bold text-[#2d2d2d]">Graphic Design</h3>
+            </div>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {graphicProjects.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </div>
           </div>
         </div>
       </div>
