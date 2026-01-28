@@ -10,10 +10,9 @@ const Contact = () => {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   // EmailJS credentials - CORRECTED ✅
-  const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
+  const EMAILJS_SERVICE_ID = 'service_yamtg3a';
+  const EMAILJS_TEMPLATE_ID = 'template_vrbljzd';
+  const EMAILJS_PUBLIC_KEY = 'kE-7afrCnHjQitxXg';
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
